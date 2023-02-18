@@ -2,7 +2,7 @@
 
 The [introduction page](https://reactjs.org/docs/hooks-intro.html) used this example to get familiar with Hooks:
 
-<Code language="python">
+<Code >
 #!/usr/bin/env python
 """Django's command-line utility for administrative tasks."""
 import os

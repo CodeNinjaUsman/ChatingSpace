@@ -1,78 +1,55 @@
-<div align="center">
-<img width="30%" src="https://user-images.githubusercontent.com/72341453/134747028-7e2d90cc-a92f-4f66-815e-54a0d50cca54.PNG">
+# Using the State Hook
 
-# StudyBuddy
-</div>
+The [introduction page](https://reactjs.org/docs/hooks-intro.html) used this example to get familiar with Hooks:
 
-### Cloning the repository
+<Code language="javascript">
+import React, { useState } from 'react';
+function Example() {
+  // Declare a new state variable, which we'll call "count"
+  const [count, setCount] = useState(0);
+  return (
+    &lt;div>
+      &lt;p>You clicked {count} times</p>
+      &lt;button onClick={() => setCount(count + 1)}>
+        Click me
+      </button>
+    </div>
+  );
+}
+export default Example;
+</Code>
 
---> Clone the repository using the command below :
-```bash
-git clone https://github.com/divanov11/StudyBud.git
+We’ll start learning about Hooks by comparing this code to an equivalent class example.
 
-```
+# Equivalent Class Example
 
---> Move into the directory where we have the project files : 
-```bash
-cd StudyBud
+If you used classes in React before, this code should look familiar:
 
-```
+<Code language="javascript">
+class Example extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      count: 0
+    };
+  }
 
---> Create a virtual environment :
-```bash
-# Let's install virtualenv first
-pip install virtualenv
+  render() {
+    return (
+      &lt;div>
+        &lt;p>You clicked {this.state.count} times</p>
+        &lt;button 
+          onClick={() => this.setState({ count: this.state.count + 1 })}>
+          Click me
+        </button>
+      </div>
+    );
+  }
+}
+</Code>
 
-# Then we create our virtual environment
-virtualenv envname
+The state starts as `{ count: 0 }`, and we increment state.count when the user clicks a button by calling `this.setState()`. We’ll use snippets from this class throughout the page.
 
-```
-
---> Activate the virtual environment :
-```bash
-envname\scripts\activate
-
-```
-
---> Install the requirements :
-```bash
-pip install -r requirements.txt
-
-```
-
-#
-
-### Running the App
-
---> To run the App, we use :
-```bash
-python manage.py runserver
-
-```
-
-> ⚠ Then, the development server will be started at http://127.0.0.1:8000/
-
-#
-
-### App Preview :
-
-<table width="100%"> 
-<tr>
-<td width="50%">      
-&nbsp; 
-<br>
-<p align="center">
-  Feed Home
-</p>
-<img src="https://user-images.githubusercontent.com/72341453/134747262-0a92233d-8010-40f8-84c5-8d94895aac44.PNG">
-</td> 
-<td width="50%">
-<br>
-<p align="center">
-  Room Conversation Preview
-</p>
-<img src="https://user-images.githubusercontent.com/72341453/134747155-3ca5b55f-b064-4741-aeae-abe90bddf41e.PNG">  
-</td>
-</table>
-
-
+> ***Note***
+>
+> You might be wondering why we’re using a counter here instead of a more realistic example. This is to help us focus on the API while we’re still making our first steps with Hooks.
